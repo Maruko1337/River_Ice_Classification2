@@ -1,0 +1,120 @@
+Wed May 22 13:41:11 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla P100-PCIE-12GB           On  | 00000000:03:00.0 Off |                    0 |
+| N/A   29C    P0              25W / 250W |      0MiB / 12288MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Doing experiment for  2017  year!
+[I 2024-05-22 13:43:59,975] A new study created in memory with name: no-name-0cdd4797-7bee-4187-8ee4-af3371f4f5ad
+[W 2024-05-22 13:44:06,558] Trial 0 failed with parameters: {} because of the following error: RuntimeError('The size of tensor a (2) must match the size of tensor b (4) at non-singleton dimension 1').
+Traceback (most recent call last):
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 473, in objective
+    loss_val, acc_val, f1_val, loss_train, acc_train, f1_train = cross_validation(path, test_year)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 262, in cross_validation
+    train_loss, train_acc, train_f1 = train_model(path, train_files)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 201, in train_model
+    output = model(features, adj)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/models.py", line 264, in forward
+    x = torch.mul(x.squeeze(1), self.learnable_weight)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (2) must match the size of tensor b (4) at non-singleton dimension 1
+[W 2024-05-22 13:44:06,826] Trial 0 failed with value None.
+self.weight intial Parameter containing:
+tensor([[-3.4951e+19,  3.0789e-41, -3.4951e+19,  3.0789e-41],
+        [ 4.0638e-44,  0.0000e+00,  1.7096e-43,  0.0000e+00]],
+       requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],
+        [-1.6591e+19,  3.0789e-41, -8.7961e+16,  3.0789e-41],
+        [ 4.8521e-17,  1.5567e-41,  1.4013e-45,  0.0000e+00],
+        [ 8.4078e-45,  0.0000e+00,  0.0000e+00,  0.0000e+00]],
+       requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[ 5.3077e+14,  1.5566e-41, -1.9021e+18,  3.0789e-41],
+        [ 1.4013e-45,  0.0000e+00, -4.0037e+19,  3.0789e-41],
+        [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],
+        [-3.4326e+19,  3.0789e-41, -8.7961e+16,  3.0789e-41]],
+       requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[ 5.3077e+14,  1.5566e-41],
+        [-1.6158e+19,  3.0789e-41],
+        [ 1.4013e-45,  0.0000e+00],
+        [ 3.7835e-43,  2.4361e+20]], requires_grad=True)
+training doing /home/maruko/projects/def-ka3scott/maruko/seaiceClass/data/lake_stlawrence/6Graph_label_intensity/20190219
+path = /home/maruko/projects/def-ka3scott/maruko/seaiceClass/data/lake_stlawrence/6Graph_label_intensity/20190219
+size of feature: torch.Size([2131, 2]), size of adj:torch.Size([2131, 2131])
+torch.Size([2131, 2])
+self.weights = Parameter containing:
+tensor([[ 0.3823,  0.4150, -0.1171,  0.4593],
+        [-0.1096,  0.1009, -0.2434,  0.2936]], device='cuda:0',
+       requires_grad=True), input is torch.Size([2131, 2])
+torch.Size([2131, 4])
+size of x :torch.Size([2131, 4]), size of weight torch.Size([2131, 4])
+size of x :torch.Size([2131, 4])
+size of x :torch.Size([2131, 4]), size of weight torch.Size([2131, 4])
+self.weights = Parameter containing:
+tensor([[-0.5424,  0.5802],
+        [ 0.2037,  0.2929],
+        [ 0.2236, -0.0123],
+        [ 0.5534, -0.5024]], device='cuda:0', requires_grad=True), input is torch.Size([2131, 4])
+Traceback (most recent call last):
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 582, in <module>
+    study.optimize(objective, n_trials=1)  # Adjust the number of trials as needed
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 473, in objective
+    loss_val, acc_val, f1_val, loss_train, acc_train, f1_train = cross_validation(path, test_year)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 262, in cross_validation
+    train_loss, train_acc, train_f1 = train_model(path, train_files)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 201, in train_model
+    output = model(features, adj)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1518, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1527, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/models.py", line 264, in forward
+    x = torch.mul(x.squeeze(1), self.learnable_weight)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: The size of tensor a (2) must match the size of tensor b (4) at non-singleton dimension 1

@@ -1,0 +1,96 @@
+Mon May 27 09:37:43 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla P100-PCIE-12GB           On  | 00000000:04:00.0 Off |                    0 |
+| N/A   30C    P0              24W / 250W |      0MiB / 12288MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Doing experiment for  2017  year!
+[I 2024-05-27 09:41:47,906] A new study created in memory with name: no-name-53ee03ec-77a4-44df-bbaa-1eea0ed7a33c
+[W 2024-05-27 09:41:48,473] Trial 0 failed with parameters: {} because of the following error: TypeError("unhashable type: 'list'").
+Traceback (most recent call last):
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 485, in objective
+    loss_val, acc_val, f1_val, loss_train, acc_train, f1_train = cross_validation(path, test_year)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 271, in cross_validation
+    train_loss, train_acc, train_f1 = train_model(path, train_files)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 201, in train_model
+    adj, features, labels = load_data(file_path)
+                            ^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/utils.py", line 608, in load_data
+    labels = encode_onehot(node_labels)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/utils.py", line 28, in encode_onehot
+    classes = set(labels)
+              ^^^^^^^^^^^
+TypeError: unhashable type: 'list'
+[W 2024-05-27 09:41:48,529] Trial 0 failed with value None.
+self.weight intial Parameter containing:
+tensor([[5.4449e+35, 3.0864e-41, 5.4449e+35, 3.0864e-41],
+        [1.2401e-42, 0.0000e+00, 1.2612e-42, 0.0000e+00]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00],
+        [2.8273e+36, 3.0864e-41, 9.0104e+33, 3.0864e-41],
+        [1.7315e-18, 1.5587e-41, 0.0000e+00, 0.0000e+00],
+        [0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[1.4619e+35, 3.0864e-41, 0.0000e+00, 0.0000e+00],
+        [1.0954e+36, 3.0864e-41, 9.0104e+33, 3.0864e-41],
+        [1.7315e-18, 1.5587e-41, 0.0000e+00, 0.0000e+00],
+        [0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[5.4449e+35, 3.0864e-41],
+        [6.3759e-43, 0.0000e+00],
+        [2.1301e+36, 3.0864e-41],
+        [1.4013e-45, 5.6052e-45]], requires_grad=True)
+training doing /home/maruko/projects/def-ka3scott/maruko/seaiceClass/data/7relabel_graphs/20190219
+path = /home/maruko/projects/def-ka3scott/maruko/seaiceClass/data/7relabel_graphs/20190219
+Traceback (most recent call last):
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 594, in <module>
+    study.optimize(objective, n_trials=1)  # Adjust the number of trials as needed
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 485, in objective
+    loss_val, acc_val, f1_val, loss_train, acc_train, f1_train = cross_validation(path, test_year)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 271, in cross_validation
+    train_loss, train_acc, train_f1 = train_model(path, train_files)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 201, in train_model
+    adj, features, labels = load_data(file_path)
+                            ^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/utils.py", line 608, in load_data
+    labels = encode_onehot(node_labels)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/utils.py", line 28, in encode_onehot
+    classes = set(labels)
+              ^^^^^^^^^^^
+TypeError: unhashable type: 'list'

@@ -1,0 +1,86 @@
+Thu May 16 09:55:11 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla P100-PCIE-12GB           On  | 00000000:82:00.0 Off |                    0 |
+| N/A   32C    P0              25W / 250W |      2MiB / 12288MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Doing experiment for  4  layers!
+[I 2024-05-16 09:59:50,746] A new study created in memory with name: no-name-6a99edcd-f196-49d1-8fc6-64bda8ff1027
+[W 2024-05-16 09:59:53,694] Trial 0 failed with parameters: {} because of the following error: TypeError("'torch.Size' object is not callable").
+Traceback (most recent call last):
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 472, in objective
+    loss_val, acc_val, f1_val, loss_train, acc_train, f1_train = cross_validation(path, test_year)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 261, in cross_validation
+    train_loss, train_acc, train_f1 = train_model(path, train_files)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 199, in train_model
+    print(f"size of feature: {features.shape()}, size of adj:{adj.shape()}")
+                              ^^^^^^^^^^^^^^^^
+TypeError: 'torch.Size' object is not callable
+[W 2024-05-16 09:59:53,783] Trial 0 failed with value None.
+self.weight intial Parameter containing:
+tensor([[7.9734e-43, 0.0000e+00, 8.4498e-43, 0.0000e+00],
+        [0.0000e+00, 0.0000e+00, 7.9734e-43, 0.0000e+00]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[ 1.2261e+04,  3.0921e-41,  3.7718e+01,  3.0921e-41],
+        [-2.4543e+27,  1.5623e-41,  0.0000e+00,  0.0000e+00],
+        [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00],
+        [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00]],
+       requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[ 4.6598e+03,  3.0921e-41,  0.0000e+00,  0.0000e+00],
+        [ 1.6888e+04,  3.0921e-41,  3.7718e+01,  3.0921e-41],
+        [-2.4544e+27,  1.5623e-41,  0.0000e+00,  0.0000e+00],
+        [ 0.0000e+00,  0.0000e+00,  0.0000e+00,  0.0000e+00]],
+       requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[2.3853e-19, 1.5623e-41],
+        [8.4757e+03, 3.0921e-41],
+        [1.4013e-45, 0.0000e+00],
+        [6.4460e-44, 1.5623e-41]], requires_grad=True)
+training doing /home/maruko/projects/def-ka3scott/maruko/seaiceClass/data/lake_stlawrence/6Graph_label_intensity/20190219
+path = /home/maruko/projects/def-ka3scott/maruko/seaiceClass/data/lake_stlawrence/6Graph_label_intensity/20190219
+Traceback (most recent call last):
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 581, in <module>
+    study.optimize(objective, n_trials=1)  # Adjust the number of trials as needed
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 472, in objective
+    loss_val, acc_val, f1_val, loss_train, acc_train, f1_train = cross_validation(path, test_year)
+                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 261, in cross_validation
+    train_loss, train_acc, train_f1 = train_model(path, train_files)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 199, in train_model
+    print(f"size of feature: {features.shape()}, size of adj:{adj.shape()}")
+                              ^^^^^^^^^^^^^^^^
+TypeError: 'torch.Size' object is not callable

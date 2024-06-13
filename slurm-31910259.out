@@ -1,0 +1,76 @@
+Fri May 17 18:39:39 2024       
++---------------------------------------------------------------------------------------+
+| NVIDIA-SMI 535.154.05             Driver Version: 535.154.05   CUDA Version: 12.2     |
+|-----------------------------------------+----------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |         Memory-Usage | GPU-Util  Compute M. |
+|                                         |                      |               MIG M. |
+|=========================================+======================+======================|
+|   0  Tesla P100-PCIE-12GB           On  | 00000000:04:00.0 Off |                    0 |
+| N/A   32C    P0              24W / 250W |      0MiB / 12288MiB |      0%      Default |
+|                                         |                      |                  N/A |
++-----------------------------------------+----------------------+----------------------+
+                                                                                         
++---------------------------------------------------------------------------------------+
+| Processes:                                                                            |
+|  GPU   GI   CI        PID   Type   Process name                            GPU Memory |
+|        ID   ID                                                             Usage      |
+|=======================================================================================|
+|  No running processes found                                                           |
++---------------------------------------------------------------------------------------+
+Doing experiment for  2017  year!
+[I 2024-05-17 18:41:55,268] A new study created in memory with name: no-name-dacbebdb-26b4-47e3-bd9d-357bd0977fb3
+[W 2024-05-17 18:41:55,567] Trial 0 failed with parameters: {} because of the following error: UnboundLocalError("cannot access local variable 'x' where it is not associated with a value").
+Traceback (most recent call last):
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 89, in objective
+    model = GCN(nfeat=n_features,
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/models.py", line 89, in __init__
+    x = F.tanh(x)
+               ^
+UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
+[W 2024-05-17 18:41:55,589] Trial 0 failed with value None.
+self.weight intial Parameter containing:
+tensor([[2.9107e+00, 3.0660e-41, 1.4153e-43, 0.0000e+00],
+        [1.9597e+00, 3.0660e-41, 1.4013e-45, 5.6052e-45]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[0.0000e+00, 0.0000e+00, 0.0000e+00, 0.0000e+00],
+        [3.5731e-01, 3.0660e-41, 1.1124e-02, 3.0660e-41],
+        [5.3725e-26, 1.5362e-41, 1.4013e-45, 0.0000e+00],
+        [9.8091e-45, 0.0000e+00, 0.0000e+00, 0.0000e+00]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[3.6847e+00, 3.0660e-41, 0.0000e+00, 0.0000e+00],
+        [3.4245e+00, 3.0660e-41, 1.1124e-02, 3.0660e-41],
+        [5.2576e-26, 1.5362e-41, 1.4013e-45, 0.0000e+00],
+        [2.2421e-44, 0.0000e+00, 0.0000e+00, 0.0000e+00]], requires_grad=True)
+self.weight intial Parameter containing:
+tensor([[4.3151e-01, 3.0660e-41],
+        [4.3151e-01, 3.0660e-41],
+        [1.1014e-42, 0.0000e+00],
+        [1.1154e-42, 0.0000e+00]], requires_grad=True)
+Traceback (most recent call last):
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 582, in <module>
+    study.optimize(objective, n_trials=1)  # Adjust the number of trials as needed
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/study.py", line 451, in optimize
+    _optimize(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 66, in _optimize
+    _optimize_sequential(
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 163, in _optimize_sequential
+    frozen_trial = _run_trial(study, func, catch)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 251, in _run_trial
+    raise func_err
+  File "/home/maruko/.local/lib/python3.11/site-packages/optuna/study/_optimize.py", line 200, in _run_trial
+    value_or_values = func(trial)
+                      ^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/train.py", line 89, in objective
+    model = GCN(nfeat=n_features,
+            ^^^^^^^^^^^^^^^^^^^^^
+  File "/project/6002612/maruko/seaiceClass/src/pygcn/pygcn/models.py", line 89, in __init__
+    x = F.tanh(x)
+               ^
+UnboundLocalError: cannot access local variable 'x' where it is not associated with a value
